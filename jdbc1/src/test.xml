@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- dom解析      sax解析 -->
+<!--将一个标签就成一个元素或节点  -->
+<students>
+	<student id="1001">
+		<name>张三</name>
+		<sex>男</sex>
+		<age>56</age>
+	 </student>
+	 <student id="1002">
+		<name>小白</name>
+		<sex>女</sex>
+		<age>18</age>
+	 </student>
+</students> 
+ 
