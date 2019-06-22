@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<typeAliases>
+		<typeAlias type="com.ys.p1.User" alias="uu"/>
+	</typeAliases>
+	
+	<!-- default  属性代表使用的是哪一个数据源 -->
+	<environments default="d1">
+		<!-- 配置一个数据源 -->
+		<environment id="d1">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/cTest" />
+				<property name="username" value="root" />
+				<property name="password" value="123456" />
+			</dataSource>
+		</environment>
+		
+		
+	</environments>
+	
+	
+	
+	
+	<!-- 注册数据映射文件 -->
+	<mappers>
+		<mapper resource="user.xml"/>
+	</mappers>	
+		
+</configuration>   
+    
+    

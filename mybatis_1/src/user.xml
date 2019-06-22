@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="u1">
+	<insert id="in1">
+		INSERT INTO m1(id,name) VALUES(1001,'张三')
+	</insert>
+	<!--resultType 返回数据的类型  -->
+	<select id="sel1" resultType="java.lang.Integer">
+		SELECT count(*) FROM m1
+	</select>
+	<!-- parameterType 传递参数的类型 -->
+	<select id="sel2" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		SELECT count(*) FROM m1 WHERE age = #{a}
+	</select>
+	<select id="sel3" resultType="com.ys.p1.User" parameterType="int">
+		SELECT * FROM m1 WHERE id = #{c}
+	</select>
+	
+	<select id="sel4" resultType="com.ys.p1.User" parameterType="java.util.HashMap">
+		SELECT * FROM m1 WHERE name=#{name} OR age=#{age}
+	</select>
+	
+	<select id="sel5" resultType="uu" parameterType="java.lang.Integer">
+		SELECT * FROM m1 WHERE id = #{c}
+	</select>
+	<!-- 配置数据库中列和对象属性的关系 -->
+	<resultMap type="uu" id="uuMap">
+		<result column="id"  property="id1"/>
+		<result column="name" property="name"/>
+		<result column="sex" property="sex"/>
+	</resultMap>	
+	<select id="sel6" resultMap="uuMap" parameterType="java.lang.Integer">
+		SELECT * FROM m1 WHERE id = #{c}
+	</select>	
+	<insert id="u1" >
+		INSERT INTO people(id,name) VALUES (1,'WANG')
+	</insert>
+</mapper>
